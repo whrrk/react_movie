@@ -14,6 +14,9 @@ import FavoritePage from "./views/FavoritePage/FavoritePage";
 //false  logged in user can't go inside
 
 function App() {
+
+  window.localStorage.removeItem('userId')
+
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
       <NavBar />

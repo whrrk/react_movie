@@ -54,28 +54,29 @@ function Favorite(props) {
 
 
     const onClickFavorite = () => {
-
-        if (Favorited) {
-            Axios.post('/api/favorite/removeFromFavorite', variables)
-                .then(response => {
-                    if (response.data.success) {
-                        setFavoriteNumber(FavoriteNumber - 1)
-                        setFavorited(!Favorited)
-                    } else {
-                        alert('Favorite list remove failed')
-                    }
-                })
-        }
-        else {
-            Axios.post('/api/favorite/addToFavorite', variables)
-                .then(response => {
-                    if (response.data.success) {
-                        setFavoriteNumber(FavoriteNumber + 1)
-                        setFavorited(!Favorited)
-                    } else {
-                        alert('Favorite list add failed')
-                    }
-                })
+        if (userFrom !== null) {
+            if (Favorited) {
+                Axios.post('/api/favorite/removeFromFavorite', variables)
+                    .then(response => {
+                        if (response.data.success) {
+                            setFavoriteNumber(FavoriteNumber - 1)
+                            setFavorited(!Favorited)
+                        } else {
+                            alert('Favorite list remove failed')
+                        }
+                    })
+            }
+            else {
+                Axios.post('/api/favorite/addToFavorite', variables)
+                    .then(response => {
+                        if (response.data.success) {
+                            setFavoriteNumber(FavoriteNumber + 1)
+                            setFavorited(!Favorited)
+                        } else {
+                            alert('Favorite list add failed')
+                        }
+                    })
+            }
         }
     }
 
