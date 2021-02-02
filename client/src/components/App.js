@@ -15,8 +15,6 @@ import FavoritePage from "./views/FavoritePage/FavoritePage";
 
 function App() {
 
-  window.localStorage.removeItem('userId')
-
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
       <NavBar />
